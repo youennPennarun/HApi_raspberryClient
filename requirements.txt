@@ -1,0 +1,4 @@
+APScheduler==3.0.1
+psutil==2.2.0
+python-dateutil==2.4.0
+requests==2.5.1

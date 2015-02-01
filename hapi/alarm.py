@@ -1,0 +1,106 @@
+import sys
+sys.path.append( "./server_link/" )
+sys.path.append( "./player/" )
+from server_link.requestHandler import RequestHandler, OnHandler
+import dateutil.parser
+import datetime
+from scheduler import Scheduler
+from utils import Utils
+from player.player import Player
+import pytz
+class Alarm:
+      serverHandler = None
+      timezone=pytz.timezone('Europe/Paris')
+      alarms = []
+      def __init__(self, _id, time, enable, repeat):
+          self._id = _id
+          self.time = time
+          self.enable = enable
+          self.repeat = repeat
+          self.job = None
+          self.schedule()
+          
+          
+      
+      def execute(self):
+          if not Utils.has_internet():
+             player = Player()
+             player.play_local()
+          else:
+               if Alarm.serverHandler is not None:
+                  Alarm.serverHandler.emit(RequestHandler('music:discovering'))
+                  if not self.repeat:
+                     self.enable = False
+                     Alarm.serverHandler.emit(RequestHandler('alarm:update', {"alarm": {"_id": self._id, "update": {"enable": False}}}))
+             
+          
+          
+      def schedule(self):
+          if self.job is not None:
+             self.job.remove()
+          if self.enable is True:
+             now = datetime.datetime.now()
+             tomorrow = datetime.datetime.now() + datetime.timedelta(days=1)
+             if (now.hour >= self.time.hour) and (now.minute >= self.time.minute):
+                self.time = tomorrow.replace(hour=self.time.hour, minute=self.time.minute, second=0)
+             else:
+                self.time = now.replace(hour=self.time.hour, minute=self.time.minute, second=0)
+             self.job = Scheduler.scheduler.add_job(self.execute, 'date', next_run_time = self.time)
+      @staticmethod
+      def remove(alarm):
+          alarm.job.remove()
+          Alarm.alarms.remove(alarm)
+      @staticmethod
+      def removeByData(data):
+          alarmId = data['alarm']['_id'];
+          alarm = None
+          for a in Alarm.alarms:
+              if alarmId == a._id:
+                 alarm = a
+          if alarm != None:
+             alarm.job.remove()
+             Alarm.alarms.remove(alarm)
+          
+      @staticmethod
+      def responseToObject(data):
+          try:
+              if data['list'] is not None: 
+                 for data in data['list']:
+                     d = Alarm.ISO_to_date(data['time'])
+                     if not Alarm.exist(d):
+                        alarm = Alarm(data['_id'], d, data['enable'], data['repeat'])
+                        Alarm.alarms.append(alarm)
+          except KeyError:
+                 d = Alarm.ISO_to_date(data['alarm']['time'])
+                 if not Alarm.exist(d):
+                    alarm = Alarm(data['alarm']['_id'], d, data['alarm']['enable'], data['alarm']['repeat'])
+                    Alarm.alarms.append(alarm)
+          Scheduler.scheduler.print_jobs()
+      @staticmethod
+      def ISO_to_date(isoStr):
+          return dateutil.parser.parse(isoStr).astimezone(Alarm.timezone)
+      @staticmethod
+      def exist(time):
+          e = False
+          for alarm in Alarm.alarms:
+              if alarm.time.hour == time.hour and alarm.time.minute == time.minute:
+                 e = True
+                 break
+          return e
+      @staticmethod
+      def update(data):
+          updated = data['alarm']
+          for alarm in Alarm.alarms:
+              if alarm._id == updated['_id']:
+                 if 'time' in updated:
+                    alarm.time = Alarm.ISO_to_date(updated['time'])
+                 if 'enable' in updated:
+                    alarm.enable = updated['enable']
+                 if 'repeat' in updated:
+                    alarm.repeat = updated['repeat']
+                 alarm.schedule()
+                 
+               
+              
+      
+          
