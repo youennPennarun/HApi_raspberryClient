@@ -22,8 +22,9 @@ class ServerHandler(threading.Thread):
           self.logger.info('Initializing player')
           self.connected = False
           threading.Thread.__init__(self)
+          
           self.process = subprocess.Popen(['node', 
-          os.path.join(os.path.dirname(os.path.realpath(__file__)), 'app.js')], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+          os.path.join(os.path.dirname(os.path.realpath(__file__)), 'node/app.js')], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
           self.on(OnHandler("connected", self.init))
           
       def run(self):

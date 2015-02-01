@@ -1,5 +1,6 @@
 var ini = require('node-ini');
-var config = ini.parseSync(getUserHome + '/.hapi_conf');
+
+var config = ini.parseSync(process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE + '/.hapi_conf');
 
 var url = config.Server.url;
 var io = require('socket.io-client');
@@ -78,8 +79,6 @@ function tokenConnect () {
 
     });
 };
-function getUserHome() {
-  return process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
-}
+
 
 tokenConnect();
