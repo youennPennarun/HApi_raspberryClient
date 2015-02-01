@@ -53,5 +53,6 @@ docs/_build/
 # PyBuilder
 target/
 
-#spotify tmp
+#spotify files
 tmp/
+spotify_appkey.key
