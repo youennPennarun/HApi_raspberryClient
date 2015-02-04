@@ -4,7 +4,7 @@ import threading
 import gobject
 import pygst
 pygst.require('0.10')
-import gst
+#import gst
 import os
 import time
 class LocalPlayer(threading.Thread):

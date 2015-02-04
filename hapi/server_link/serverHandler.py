@@ -17,19 +17,23 @@ class ServerHandler(threading.Thread):
       listeners=[]
       connected = False
       logger = logging.getLogger('HApi.serverHandler')
-      def __init__(self):
+      def __init__(self, confPath=None):
           logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
           self.logger.info('Initializing player')
           self.connected = False
           threading.Thread.__init__(self)
-          
-          self.process = subprocess.Popen(['node', 
-          os.path.join(os.path.dirname(os.path.realpath(__file__)), 'node/app.js')], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+          args = "";
+          if confPath is not None:
+             args = "--conf="+confPath;
+          appPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'node/app.js');
+          self.process = subprocess.Popen(['node', appPath, args], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
           self.on(OnHandler("connected", self.init))
           
       def run(self):
+          print("starting serverHandler Thread")
           while self.process.poll() is None:
                 lines = self.process.stdout.readline().splitlines()
+                #lines = self.process.stdout.readline().splitlines()
                 for line in lines:
                     try:
                         data = json.loads(line)

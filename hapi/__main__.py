@@ -5,6 +5,7 @@ import sys
 import socket
 import signal
 import time
+import setproctitle
 from os.path import expanduser
 #import Scheduler
 
@@ -14,18 +15,24 @@ from server_link import RequestHandler, OnHandler, ServerHandler
 from player import Player
 from ConfigParser import SafeConfigParser
 
-def main():
-
+def main(args):
     try:
+        confPath = expanduser("~") + '/.hapi_conf'
+        if args.conf is not None:
+           confPath = args.conf
         config = SafeConfigParser()
-        config.read(expanduser("~") + '/.hapi_conf')
+        config.read(confPath)
         scheduler = Sched()
-        
+        print(confPath)
         def setAlarmData(data):
             print(str(data))
         print("starting node js")
-        serverHandler = ServerHandler()
         
+        if args.conf is not None:
+           serverHandler = ServerHandler(confPath)
+        else:
+           serverHandler = ServerHandler()
+        print(OnHandler)
         serverHandler.on(OnHandler("alarm:new", Alarm.responseToObject))
         serverHandler.on(OnHandler("response:alarm:get", Alarm.responseToObject))
         
@@ -53,5 +60,11 @@ def main():
            sys.exit(0)
            
 if __name__ == '__main__':
-    sys.exit(main())
+    import argparse, sys
+    setproctitle.setproctitle('HAPI client')
+    parser = argparse.ArgumentParser(description='Client for the HAPI server')
+    parser.add_argument('--conf', help='Path to the configuration file')               
+    args = parser.parse_args()
+    
+    sys.exit(main(args))
 

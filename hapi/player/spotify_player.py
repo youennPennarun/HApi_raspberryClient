@@ -121,7 +121,7 @@ class SpotifyPlayer():
             #session.relogin()
             print("play id "+str(self.idPlaying))
             if len(self.playlist) > self.idPlaying:
-               track = self.session.get_track(self.playlist[self.idPlaying]['uri'])
+               track = self.session.get_track(self.playlist[self.idPlaying]['link']['uri'])
                track.load()
             else:
                  return False
@@ -182,8 +182,12 @@ class SpotifyPlayer():
         print(searchInfo['type'])
         if searchInfo['type'] == 'trackset':
            for search in searchInfo['data']:
-               result = self.execute_search('artist:"%s" title:"%s"' % (search['artist'], search['track']))
+               print(search);
+               result = self.execute_search('artist:"%s" title:"%s"' % (search['artist_name'], search['title']))
                if result is not None:
+                  print("--------------------")
+                  print(result);
+                  print("--------------------")
                   results.append(result)
         return results
                

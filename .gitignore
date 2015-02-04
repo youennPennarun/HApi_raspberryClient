@@ -56,3 +56,4 @@ target/
 #spotify files
 tmp/
 spotify_appkey.key
+.conf_local

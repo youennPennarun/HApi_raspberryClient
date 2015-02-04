@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 setup(name='HApi_raspberry_client',
       version='0.1',
       description='Client for HApi',
-      url='http://github.com/storborg/funniest',
+      url='',
       author='Youenn PENNARUN',
       author_email='youenn.pennarun@gmail.com',
       license='MIT',
