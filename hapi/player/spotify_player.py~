@@ -174,10 +174,12 @@ class SpotifyPlayer():
             print(data['tracks'])
             if 'tempoId' in data['tracks']: 
               for track  in (sorted(data['tracks'], key=itemgetter('tempoId'))):
+              	  print(track)
                   sTrack = SpotifyTrack(None, None, None, track['link']['uri'])
                   self.playlist.append(sTrack);
             else:
                 for track  in data['tracks']:
+              	    print(track)
                     sTrack = SpotifyTrack(None, None, None, track['link']['uri'])
                     self.playlist.append(sTrack);
                 self.play_next()

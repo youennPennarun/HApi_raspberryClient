@@ -1,0 +1,104 @@
+/home/pi/.hapi_conf
+starting node js
+server_link.requestHandler.OnHandler
+starting serverHandler Thread
+Jobstore default:
+    No scheduled jobs
+[{u'track': u'On the Road Again', u'link': {u'source': u'spotify', u'uri': u'spotify:track:4ET2qD4ikD3626uAUcMtu6'}, u'tempoId': 0, u'artist': u'St\xe9phane Pompougnac'}, {u'track': u'Liebe Ist...', u'link': {u'source': u'spotify', u'uri': u'spotify:track:6JaWqpWxZ47wI2j37Kgq66'}, u'tempoId': 2, u'artist': u'Stephan Bodzin'}, {u'track': u'Drop the Phone', u'link': {u'source': u'spotify', u'uri': u'spotify:track:6BFmijF1DypBiTmHwGjjAB'}, u'tempoId': 1, u'artist': u'Shy Child'}]
+play id 0
+play id 1
+trackset
+{u'tempo': {u'id': 2, u'value': u'fast'}, u'artist_name': u'Mathew Jonson', u'title': u'Symphony for the Apocalypse: New Age Revolution'}
+{u'tempo': {u'id': 0, u'value': u'slow'}, u'artist_name': u'Kaiser Chiefs', u'title': u'Saturday Night'}
+--------------------
+{u'uri': u'spotify:track:4FoipVMx6vjP6JNGKQyTXS', u'name': u'Saturday Night'}
+--------------------
+{u'tempo': {u'id': 1, u'value': u'moderate'}, u'artist_name': u'Jason Collett', u'title': u'Hangover Days'}
+play id 0
+trackset
+{u'tempo': {u'id': 2, u'value': u'fast'}, u'artist_name': u'Mathew Jonson', u'title': u'Symphony for the Apocalypse: New Age Revolution'}
+{u'tempo': {u'id': 0, u'value': u'slow'}, u'artist_name': u'Kaiser Chiefs', u'title': u'Saturday Night'}
+--------------------
+{u'uri': u'spotify:track:4FoipVMx6vjP6JNGKQyTXS', u'name': u'Saturday Night'}
+--------------------
+{u'tempo': {u'id': 1, u'value': u'moderate'}, u'artist_name': u'Jason Collett', u'title': u'Hangover Days'}
+play id 0
+trackset
+{u'tempo': {u'id': 2, u'value': u'fast'}, u'artist_name': u'Mathew Jonson', u'title': u'Symphony for the Apocalypse: New Age Revolution'}
+{u'tempo': {u'id': 0, u'value': u'slow'}, u'artist_name': u'Kaiser Chiefs', u'title': u'Saturday Night'}
+--------------------
+{u'uri': u'spotify:track:4FoipVMx6vjP6JNGKQyTXS', u'name': u'Saturday Night'}
+--------------------
+{u'tempo': {u'id': 1, u'value': u'moderate'}, u'artist_name': u'Jason Collett', u'title': u'Hangover Days'}
+play id 0
+[{u'track': u'Shift', u'link': {u'source': u'spotify', u'uri': u'spotify:track:1lDqG9GMBLwhMMMcnhGhFc'}, u'tempoId': 0, u'artist': u'Fort Knox Five'}, {u'track': u'Bush Resistance', u'link': {u'source': u'spotify', u'uri': u'spotify:track:3ZFiSxfFvnBVkIl6pZCRSa'}, u'tempoId': 2, u'artist': u'Balkan Beat Box'}, {u'track': u'Cancao Pra Voce Viver Mais', u'link': {u'source': u'spotify', u'uri': u'spotify:track:5AuzEbLduYTyDcYGI9rUXv'}, u'tempoId': 1, u'artist': u'Pato Fu'}]
+play id 0
+play id 1
+play id 2
+play id 1
+[{u'track': u'Lynchpin', u'link': {u'source': u'spotify', u'uri': u'spotify:track:5ecGb8BO71ISsQFaxa6Ah5'}, u'tempoId': 2, u'artist': u'Proper Villains'}, {u'track': u'Meow', u'link': {u'source': u'spotify', u'uri': u'spotify:track:0Rx2P6lc1YIAvpalv5OL17'}, u'tempoId': 1, u'artist': u'Anamanaguchi'}, {u'track': u'I Can See for Miles', u'link': {u'source': u'spotify', u'uri': u'spotify:track:2djoYMtTc6eMRVDJ5oEuxm'}, u'tempoId': 0, u'artist': u'The Who'}]
+play id 0
+trackset
+{u'tempo': {u'id': 0, u'value': u'slow'}, u'artist_name': u'Savages Y Suefo', u'title': u"Kali's Kiss"}
+{u'tempo': {u'id': 2, u'value': u'fast'}, u'artist_name': u'Scala & Kolacny Brothers', u'title': u'Smells Like Teen Spirit'}
+--------------------
+{u'uri': u'spotify:track:2Fq7DsGK5FH8iczjm1ceIh', u'name': u'Smells Like Teen Spirit - Originally performed by Nirvana'}
+--------------------
+{u'tempo': {u'id': 1, u'value': u'moderate'}, u'artist_name': u'Boys Noize', u'title': u'Rocky 2'}
+--------------------
+{u'uri': u'spotify:track:1mZGx1ENruewV9upWMbQNm', u'name': u'Rocky 2'}
+--------------------
+play id 0
+trackset
+{u'tempo': {u'id': 0, u'value': u'slow'}, u'artist_name': u'Savages Y Suefo', u'title': u"Kali's Kiss"}
+{u'tempo': {u'id': 2, u'value': u'fast'}, u'artist_name': u'Scala & Kolacny Brothers', u'title': u'Smells Like Teen Spirit'}
+--------------------
+{u'uri': u'spotify:track:2Fq7DsGK5FH8iczjm1ceIh', u'name': u'Smells Like Teen Spirit - Originally performed by Nirvana'}
+--------------------
+{u'tempo': {u'id': 1, u'value': u'moderate'}, u'artist_name': u'Boys Noize', u'title': u'Rocky 2'}
+--------------------
+{u'uri': u'spotify:track:1mZGx1ENruewV9upWMbQNm', u'name': u'Rocky 2'}
+--------------------
+play id 0
+trackset
+{u'tempo': {u'id': 0, u'value': u'slow'}, u'artist_name': u'Savages Y Suefo', u'title': u"Kali's Kiss"}
+{u'tempo': {u'id': 2, u'value': u'fast'}, u'artist_name': u'Scala & Kolacny Brothers', u'title': u'Smells Like Teen Spirit'}
+--------------------
+{u'uri': u'spotify:track:2Fq7DsGK5FH8iczjm1ceIh', u'name': u'Smells Like Teen Spirit - Originally performed by Nirvana'}
+--------------------
+{u'tempo': {u'id': 1, u'value': u'moderate'}, u'artist_name': u'Boys Noize', u'title': u'Rocky 2'}
+--------------------
+{u'uri': u'spotify:track:1mZGx1ENruewV9upWMbQNm', u'name': u'Rocky 2'}
+--------------------
+play id 0
+[{u'track': u'Angeles', u'link': {u'source': u'spotify', u'uri': u'spotify:track:4ZRjHwdVGhx3XJFAUM40el'}, u'tempoId': 2, u'artist': u'Elliott Smith'}, {u'track': u"Something [Trg's '95 Remix]", u'link': {u'source': u'spotify', u'uri': u'spotify:track:1ux3NFffuAmfEXidFV3Prx'}, u'tempoId': 1, u'artist': u'Lord Skywave'}, {u'track': u'Nightswimming', u'link': {u'source': u'spotify', u'uri': u'spotify:track:2xLSFrm2oBeMtBMjlAoZSC'}, u'tempoId': 0, u'artist': u'R.E.M.'}]
+play id 0
+play id 1
+play id 2
+[{u'track': u'No Champagne', u'link': {u'source': u'spotify', u'uri': u'spotify:track:2JbEO9QQRAK7Hz0C8jLsRO'}, u'tempoId': 0, u'artist': u'Frankmusik'}, {u'track': u"Something [Trg's '95 Remix]", u'link': {u'source': u'spotify', u'uri': u'spotify:track:1ux3NFffuAmfEXidFV3Prx'}, u'tempoId': 2, u'artist': u'Lord Skywave'}, {u'track': u'Wandering Eye', u'link': {u'source': u'spotify', u'uri': u'spotify:track:01sBHzyil70jxLWglXLiZO'}, u'tempoId': 1, u'artist': u"Fat Freddy's Drop"}]
+play id 0
+[{u'track': u'Siberia', u'link': {u'source': u'spotify', u'uri': u'spotify:track:43VEwCk6pfxZVkbFjt6tmZ'}, u'tempoId': 1, u'artist': u'Raffertie'}, {u'track': u'Dem Worlds', u'link': {u'source': u'spotify', u'uri': u'spotify:track:3mLvAmr6cBd2YXm2IFXiLR'}, u'tempoId': 0, u'artist': u'Emika'}, {u'track': u'Music Takes Me Up [C.R.S.T. Remix]', u'link': {u'source': u'spotify', u'uri': u'spotify:track:4rs1oApNt8RJf2tJbjiABJ'}, u'tempoId': 2, u'artist': u'Proper Villains'}]
+play id 0
+play id 1
+Jobstore default:
+    No scheduled jobs
+Jobstore default:
+    No scheduled jobs
+Jobstore default:
+    No scheduled jobs
+Jobstore default:
+    No scheduled jobs
+Jobstore default:
+    No scheduled jobs
+Jobstore default:
+    No scheduled jobs
+Jobstore default:
+    No scheduled jobs
+Jobstore default:
+    No scheduled jobs
+Jobstore default:
+    No scheduled jobs
+Jobstore default:
+    No scheduled jobs
+Logging out...
+

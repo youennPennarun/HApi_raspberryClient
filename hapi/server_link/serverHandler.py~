@@ -22,8 +22,8 @@ class ServerHandler(threading.Thread):
           hdlr = logging.FileHandler(expanduser("~")+'/hapi.log')
           formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
           hdlr.setFormatter(formatter)
-          self.logger.addHandler(hdlr) 
-          self.logger.setLevel(logging.INFO)
+          logger.addHandler(hdlr) 
+          logger.setLevel(logging.INFO)
           self.logger.info('Initializing player')
           self.connected = False
           threading.Thread.__init__(self)

@@ -1,0 +1,329 @@
+INFO:Initializing player
+INFO:NEW LISTENER: connected
+INFO:NEW LISTENER: alarm:new
+INFO:NEW LISTENER: response:alarm:get
+INFO:Initializing player
+INFO:Spotify logged in
+From callback <function scrobble_error at 0x1f71230>:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/pyspotify-2.0.0b4-py2.7-linux-armv6l.egg/spotify/session.py", line 1111, in scrobble_error
+    error_type = spotify.ErrorType(sp_error)
+  File "/usr/local/lib/python2.7/dist-packages/pyspotify-2.0.0b4-py2.7-linux-armv6l.egg/spotify/utils.py", line 127, in __new__
+    cls._values[value] = int.__new__(cls, value)
+OverflowError: Python int too large to convert to C long
+INFO:Ready
+INFO:NEW LISTENER: sound:play
+INFO:NEW LISTENER: sound:resume
+INFO:NEW LISTENER: sound:pause
+INFO:NEW LISTENER: sound:next
+INFO:NEW LISTENER: sound:playing:get
+INFO:NEW LISTENER: sound:previous
+INFO:NEW LISTENER: sound:volume:get
+INFO:NEW LISTENER: sound:volume:set
+INFO:NEW LISTENER: alarm:remove
+INFO:NEW LISTENER: alarm:update
+WARNING:unable to load connecting to http://hapi-server.herokuapp.com
+WARNING:unable to load ready
+WARNING:unable to load connected
+INFO:received response for request connected
+INFO:sended 'authentication'
+INFO:sended 'pi:login'
+INFO:sended 'pi:ip:set'
+INFO:sended 'alarm:get'
+INFO:received response for request response:alarm:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+INFO:received response for request sound:play
+INFO:Loading track into player
+INFO:Playing track
+INFO:sended 'music:playing'
+INFO:received response for request sound:pause
+INFO:Pausing track
+INFO:received response for request sound:resume
+INFO:Resuming track
+INFO:received response for request sound:resume
+INFO:Resuming track
+INFO:Loading track into player
+INFO:sended 'music:playing'
+INFO:Playing track
+INFO:received response for request sound:play
+INFO:Loading track into player
+INFO:Playing track
+INFO:received response for request sound:play
+INFO:Loading track into player
+INFO:Playing track
+INFO:received response for request sound:play
+INFO:Loading track into player
+INFO:Playing track
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+INFO:received response for request sound:next
+INFO:received response for request sound:next
+INFO:received response for request sound:play
+INFO:Loading track into player
+INFO:Playing track
+INFO:sended 'music:playing'
+INFO:received response for request sound:next
+INFO:Loading track into player
+WARNING:The track cannot be played
+INFO:{u'track': u'Bush Resistance', u'link': {u'source': u'spotify', u'uri': u'spotify:track:3ZFiSxfFvnBVkIl6pZCRSa'}, u'tempoId': 2, u'artist': u'Balkan Beat Box'}
+INFO:received response for request sound:next
+INFO:Loading track into player
+WARNING:The track cannot be played
+INFO:{u'track': u'Cancao Pra Voce Viver Mais', u'link': {u'source': u'spotify', u'uri': u'spotify:track:5AuzEbLduYTyDcYGI9rUXv'}, u'tempoId': 1, u'artist': u'Pato Fu'}
+INFO:received response for request sound:previous
+INFO:Loading track into player
+WARNING:The track cannot be played
+INFO:{u'track': u'Bush Resistance', u'link': {u'source': u'spotify', u'uri': u'spotify:track:3ZFiSxfFvnBVkIl6pZCRSa'}, u'tempoId': 2, u'artist': u'Balkan Beat Box'}
+INFO:received response for request sound:play
+INFO:Loading track into player
+INFO:Playing track
+INFO:sended 'music:playing'
+INFO:received response for request sound:play
+INFO:Loading track into player
+INFO:Playing track
+INFO:received response for request sound:play
+INFO:Loading track into player
+INFO:Playing track
+INFO:received response for request sound:play
+INFO:Loading track into player
+INFO:Playing track
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+INFO:received response for request sound:play
+INFO:Loading track into player
+INFO:Playing track
+INFO:sended 'music:playing'
+INFO:received response for request sound:next
+INFO:Loading track into player
+INFO:Playing track
+INFO:sended 'music:playing'
+INFO:received response for request sound:next
+INFO:Loading track into player
+INFO:Playing track
+INFO:sended 'music:playing'
+INFO:received response for request sound:play
+INFO:Loading track into player
+WARNING:The track cannot be played
+INFO:{u'track': u'No Champagne', u'link': {u'source': u'spotify', u'uri': u'spotify:track:2JbEO9QQRAK7Hz0C8jLsRO'}, u'tempoId': 0, u'artist': u'Frankmusik'}
+INFO:received response for request sound:play
+INFO:Loading track into player
+INFO:Playing track
+INFO:sended 'music:playing'
+INFO:received response for request sound:next
+INFO:Loading track into player
+INFO:Playing track
+INFO:sended 'music:playing'
+INFO:Disconnected
+WARNING:unable to load con f
+WARNING:unable to load connected
+INFO:received response for request connected
+INFO:sended 'authentication'
+INFO:sended 'pi:login'
+INFO:sended 'pi:ip:set'
+INFO:sended 'alarm:get'
+INFO:received response for request response:alarm:get
+INFO:Disconnected
+WARNING:unable to load con f
+WARNING:unable to load connected
+INFO:received response for request connected
+INFO:sended 'authentication'
+INFO:sended 'pi:login'
+INFO:sended 'pi:ip:set'
+INFO:sended 'alarm:get'
+INFO:received response for request response:alarm:get
+INFO:Disconnected
+WARNING:unable to load con f
+WARNING:unable to load connected
+INFO:received response for request connected
+INFO:sended 'authentication'
+INFO:sended 'pi:login'
+INFO:sended 'pi:ip:set'
+INFO:sended 'alarm:get'
+INFO:received response for request response:alarm:get
+INFO:Disconnected
+WARNING:unable to load con f
+WARNING:unable to load connected
+INFO:received response for request connected
+INFO:sended 'authentication'
+INFO:sended 'pi:login'
+INFO:sended 'pi:ip:set'
+INFO:sended 'alarm:get'
+INFO:received response for request response:alarm:get
+INFO:Disconnected
+WARNING:unable to load con f
+WARNING:unable to load connected
+INFO:received response for request connected
+INFO:sended 'authentication'
+INFO:sended 'pi:login'
+INFO:sended 'pi:ip:set'
+INFO:sended 'alarm:get'
+INFO:received response for request response:alarm:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+INFO:Disconnected
+WARNING:unable to load con f
+WARNING:unable to load connected
+INFO:received response for request connected
+INFO:sended 'authentication'
+INFO:sended 'pi:login'
+INFO:sended 'pi:ip:set'
+INFO:sended 'alarm:get'
+INFO:received response for request response:alarm:get
+INFO:received response for request sound:playing:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+INFO:Disconnected
+ERROR:Spotify connection error: <ErrorType.UNABLE_TO_CONTACT_SERVER: 8>
+ERROR:Spotify connection error: <ErrorType.UNABLE_TO_CONTACT_SERVER: 8>
+WARNING:unable to load con f
+WARNING:unable to load connected
+INFO:received response for request connected
+INFO:sended 'authentication'
+INFO:sended 'pi:login'
+INFO:sended 'pi:ip:set'
+INFO:sended 'alarm:get'
+INFO:received response for request response:alarm:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+From callback <function scrobble_error at 0x1f71230>:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/pyspotify-2.0.0b4-py2.7-linux-armv6l.egg/spotify/session.py", line 1111, in scrobble_error
+    error_type = spotify.ErrorType(sp_error)
+  File "/usr/local/lib/python2.7/dist-packages/pyspotify-2.0.0b4-py2.7-linux-armv6l.egg/spotify/utils.py", line 127, in __new__
+    cls._values[value] = int.__new__(cls, value)
+OverflowError: Python int too large to convert to C long
+From callback <function scrobble_error at 0x1f71230>:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/pyspotify-2.0.0b4-py2.7-linux-armv6l.egg/spotify/session.py", line 1111, in scrobble_error
+    error_type = spotify.ErrorType(sp_error)
+  File "/usr/local/lib/python2.7/dist-packages/pyspotify-2.0.0b4-py2.7-linux-armv6l.egg/spotify/utils.py", line 127, in __new__
+    cls._values[value] = int.__new__(cls, value)
+OverflowError: Python int too large to convert to C long
+INFO:Disconnected
+WARNING:unable to load con f
+WARNING:unable to load connected
+INFO:received response for request connected
+INFO:sended 'authentication'
+INFO:sended 'pi:login'
+INFO:sended 'pi:ip:set'
+INFO:sended 'alarm:get'
+INFO:received response for request response:alarm:get
+INFO:Disconnected
+WARNING:unable to load con f
+WARNING:unable to load connected
+INFO:received response for request connected
+INFO:sended 'authentication'
+INFO:sended 'pi:login'
+INFO:sended 'pi:ip:set'
+INFO:sended 'alarm:get'
+INFO:received response for request response:alarm:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+INFO:received response for request sound:pause
+INFO:Pausing track
+INFO:received response for request sound:pause
+INFO:Pausing track
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+INFO:Disconnected
+WARNING:unable to load con f
+WARNING:unable to load connected
+INFO:received response for request connected
+INFO:sended 'authentication'
+INFO:sended 'pi:login'
+INFO:sended 'pi:ip:set'
+INFO:sended 'alarm:get'
+INFO:received response for request response:alarm:get
+INFO:received response for request sound:playing:get
+INFO:sended 'music:playing'
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:sended 'music:playing'
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:received response for request sound:volume:get
+INFO:received response for request sound:playing:get
+INFO:sended 'music:playing'
+INFO:sended 'music:playing'
+INFO:received response for request sound:resume
+INFO:Resuming track
+INFO:Spotify logged out

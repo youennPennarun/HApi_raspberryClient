@@ -84,8 +84,6 @@ function tokenConnect () {
 	            });
 	            socket.on('disconnect', function () {
 	                console.log(JSON.stringify({"message": "disconnect"}));
-          		sleep.sleep(30);
-          		tokenConnect ();
 	            });
 	            socket.on('response:alarm:get', function (data) {
 	                console.log(JSON.stringify({"message": "response:alarm:get", "data": data}));
