@@ -12,5 +12,5 @@ class SpotifyArtist(Artist):
         self.spotify_uri = spotify_uri
     def toJSON(self):
         json = super(SpotifyArtist, self).toJSON()
-        json["spotify_uri"] = self.spotify_uri
+        json.["spotify_uri"] = self.spotify_uri
         return json

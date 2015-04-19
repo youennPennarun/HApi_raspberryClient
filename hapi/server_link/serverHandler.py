@@ -69,9 +69,10 @@ class ServerHandler(threading.Thread):
                 self.process.stdout.flush()
       def init(self, data):
           self.emit(RequestHandler('authentication', {'username': "admin", 'password': "admin"}))
-          self.emit(RequestHandler("pi:login"))
+          self.emit(RequestHandler("pi:login", {"name": "rasp1", "ip": self.get_ip_address('wlan0')}))
           self.emit(RequestHandler("pi:ip:set", {'ip':self.get_ip_address('wlan0')}))
           self.emit(RequestHandler("alarm:get", None));
+          self.emit(RequestHandler("music:playlist:get", None));
           
       def get_ip_address(self, ifname):
           s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

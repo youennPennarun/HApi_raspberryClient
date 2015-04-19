@@ -45,6 +45,7 @@ function tokenConnect () {
           console.log("SERVER_NOT_FOUND");
           sleep.sleep(30);
           tokenConnect ();
+          return;
        } else {
             var ok = true,
             	json,
@@ -73,6 +74,7 @@ function tokenConnect () {
 	                if (error.type === "UnauthorizedError" || error.code === "invalid_token") {
 	                   socket.disconnect();
 	                    tokenConnect();
+                        return;
 	                } else {
 	                console.log(error);
 	                }
@@ -84,8 +86,10 @@ function tokenConnect () {
 	            });
 	            socket.on('disconnect', function () {
 	                console.log(JSON.stringify({"message": "disconnect"}));
+/*
           		sleep.sleep(30);
           		tokenConnect ();
+*/
 	            });
 	            socket.on('response:alarm:get', function (data) {
 	                console.log(JSON.stringify({"message": "response:alarm:get", "data": data}));
@@ -120,8 +124,23 @@ function tokenConnect () {
 	            socket.on('sound:previous', function() {
 	                console.log(JSON.stringify({"message":"sound:previous","data": {}}));
 	            });
-	            socket.on('sound:playing:get', function() {
-	                console.log(JSON.stringify({"message":"sound:playing:get","data": {}}));
+	            socket.on('music:playlist:add', function(data) {
+	                console.log(JSON.stringify({"message":"music:playlist:add","data": data}));
+	            });
+	            socket.on('music:playlist:set', function(data) {
+	                console.log(JSON.stringify({"message":"music:playlist:set","data": data}));
+	            });
+	            socket.on('music:player:next', function(data) {
+	                console.log(JSON.stringify({"message":"music:player:next","data": data}));
+	            });
+	            socket.on('music:player:previous', function(data) {
+	                console.log(JSON.stringify({"message":"music:player:previous","data": data}));
+	            });
+	            socket.on('music:playlist:playing:id', function(data) {
+	                console.log(JSON.stringify({"message":"music:playlist:playing:id","data": data}));
+	            });
+	            socket.on('music:playlist:get', function(data) {
+	                console.log(JSON.stringify({"message":"music:playlist:get","data": data}));
 	            });
 	       } else {
 	       	console.log("server error");

@@ -6,7 +6,6 @@ import socket
 import signal
 import time
 import setproctitle
-import argparse
 from os.path import expanduser
 #import Scheduler
 
@@ -15,16 +14,6 @@ from server_link import RequestHandler, OnHandler, ServerHandler
 #from spotify_player import SpotifyPlayer
 from player import Player
 from ConfigParser import SafeConfigParser
-PROC_TITLE = 'HAPI client'
-def get_lock(process_name):
-    global lock_socket   # Without this our lock gets garbage collected
-    lock_socket = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
-    try:
-        lock_socket.bind('\0' + process_name)
-    except socket.error:
-        print 'lock exists'
-        sys.exit()
-
 
 def main(args):
     try:
@@ -54,13 +43,10 @@ def main(args):
         serverHandler.on(OnHandler("sound:play", player.play))
         serverHandler.on(OnHandler("sound:resume", player.resume))
         serverHandler.on(OnHandler("sound:pause", player.pause))
+        serverHandler.on(OnHandler("sound:next", player.next))
         serverHandler.on(OnHandler("music:playlist:add", player.playListAdd))
-        serverHandler.on(OnHandler("music:playlist:set", player.playListSet))
-        serverHandler.on(OnHandler("music:playlist:get", player.playListLoad))
-        serverHandler.on(OnHandler("music:player:next", player.playIdInPlaylist))
-        serverHandler.on(OnHandler("music:player:previous", player.playIdInPlaylist))
-        serverHandler.on(OnHandler("music:playlist:playing:id", player.playIdInPlaylist))
-        serverHandler.on(OnHandler("sound:previous", player.playIdInPlaylist))
+        serverHandler.on(OnHandler("sound:playing:get", player.getPlayingTrack))
+        serverHandler.on(OnHandler("sound:previous", player.previous))
         serverHandler.on(OnHandler("sound:volume:get", player.getVolume))
         serverHandler.on(OnHandler("sound:volume:set", player.setVolume))
         serverHandler.on(OnHandler("alarm:remove", Alarm.removeByData))
@@ -75,8 +61,8 @@ def main(args):
            sys.exit(0)
            
 if __name__ == '__main__':
-    get_lock(PROC_TITLE)
-    setproctitle.setproctitle(PROC_TITLE)
+    import argparse, sys
+    setproctitle.setproctitle('HAPI client')
     parser = argparse.ArgumentParser(description='Client for the HAPI server')
     parser.add_argument('--conf', help='Path to the configuration file')               
     args = parser.parse_args()

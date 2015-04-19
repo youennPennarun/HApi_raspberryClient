@@ -77,7 +77,6 @@ class SpotifyPlayer():
            self.play_next()
         else:
            self.session.player.play(False)
-           self.notifyPlaying(None)
 
     def exit(self):
         if self.logged_in.is_set():
@@ -120,76 +119,69 @@ class SpotifyPlayer():
         self.session.player.load(track)
         self.logger.info('Playing track')
         self.session.player.play()
+    def playIdInPlaylist(self, data):
+        print(data)
+        self.idPlaying = data['idPlaying']
+        self.play(self.playlist[self.idPlaying])
+        
     def play_next(self):
+        self.idPlaying += 1
+        if len(self.playlist) > self.idPlaying:
+            self.play(self.playlist[self.idPlaying])
+        else:
+            self.idPlaying = 0
+            self.currentTrack = None
+            return False
+    def play_trackset(self, data):
+        self.playlist = data['tracks'];
+        self.play_uri(playlist[0])
+    def playListLoad(self, data):
+        self.playlist = []
+        self.currentTrack = None
+        self.playListAdd({"type": "trackset", "tracks": data["playlist"]}, False)
+        self.idPlaying = data['idPlaying']
+        if self.idPlaying < 0:
+            self.idPlaying = 0
+            
+        
+    def playListSet(self, data):
+        self.playlist = []
+        self.currentTrack = None
+        self.playListAdd(data)
+    def playListAdd(self, data, autoplay=True):
+        if data['type'] == "track":
+            self.playlist.append(data['track']['spotifyData']['uri'])
+            self.logger.info('Adding in playlist 1 track')
+        elif data['type'] == "trackset":
+            self.logger.info('Adding in playlist '+str(len(data['tracks']))+' track')
+            for track in data['tracks']:
+                self.playlist.append(track['spotifyData']['uri'])
+        if self.currentTrack is None and autoplay:
+            self.idPlaying = 0
+            self.play(self.playlist[self.idPlaying])
+
+    def play(self, trackUri=None):
+        self.logger.info("playing uri " + trackUri)
         if not self.logged_in.is_set():
             self.logger.warning('You must be logged in to play')
             return False
         try:
-            #session.relogin()
-            print("play id "+str(self.idPlaying))
-            if len(self.playlist) > self.idPlaying:
-               track = self.session.get_track(self.playlist[self.idPlaying].spotify_uri)
-               track.load()
-            else:
-                 return False
+            self.currentTrack = self.session.get_track(trackUri)
+            self.currentTrack.load()
+            print("Ready to play" + self.currentTrack.name);
         except (ValueError, spotify.Error) as e:
             self.logger.warning(e)
             return False
         self.logger.info('Loading track into player')
         try:
-            self.session.player.load(track)
-            self.notifyPlaying(track)
+            self.session.player.load(self.currentTrack)
             self.logger.info('Playing track')
             self.session.player.play()
+            self.serverHandler.emit(RequestHandler("music:playlist:playing:setId", {'idPlaying':self.idPlaying}))
             return True
         except (ValueError, spotify.Error) as e:
             self.logger.warning(e)
-            self.logger.info(self.playlist[self.idPlaying])
             return False
-               
-        
-    def notifyPlaying(self, track):
-        self.currentTrack = track
-        if self.currentTrack is not None:
-             artists = []
-             for artist in self.currentTrack.artists:
-                 artists.append(artist.name)
-             self.serverHandler.emit(RequestHandler("music:playing", {"track": {"name" : self.currentTrack.name,"artist": artists}}))
-        else:
-           self.serverHandler.emit(RequestHandler("music:playing", {"track": {}}))
-    def play_trackset(self, data):
-        self.playlist = data['tracks'];
-        self.play_uri(playlist[0])
-        
-    def play(self, data):
-        if data['type'] == "track":
-            self.idPlaying = 0
-            self.playlist = [];
-            track = SpotifyTrack(data['track']['link']['id'], data['track']['link']['name'], None, data['track']['link']['uri'])
-            self.playlist.append(track);
-            self.play_next()
-        elif data['type'] == "trackset":
-            self.idPlaying = 0
-            self.playlist = [];
-            print(data['tracks'])
-            if 'tempoId' in data['tracks']: 
-              for track  in (sorted(data['tracks'], key=itemgetter('tempoId'))):
-              	  print(track)
-                  sTrack = SpotifyTrack(None, None, None, track['link']['uri'])
-                  self.playlist.append(sTrack);
-            else:
-                for track  in data['tracks']:
-              	    print(track)
-                    sTrack = SpotifyTrack(None, None, None, track['link']['uri'])
-                    self.playlist.append(sTrack);
-                self.play_next()
-        elif data['type'] == "search":
-           results = self.search(data['search'])
-           self.idPlaying = 0
-           self.playlist = [];
-           for result in results:
-                self.playlist.append({'link': result});
-           self.play_next()
            
     def search(self, searchInfo):
         results = []
@@ -229,8 +221,13 @@ class SpotifyPlayer():
         self.session.player.play(False)
 
     def resume(self, data):
-        self.logger.info('Resuming track')
-        self.session.player.play()
+        if self.currentTrack is None:
+            if len(self.playlist) > 0:
+                self.idPlaying = 0
+                self.play(self.playlist[self.idPlaying])
+        else:
+            self.logger.info('Resuming track')
+            self.session.player.play()
 
     def stop(self, data):
         self.logger.info('Stopping track')
@@ -262,7 +259,6 @@ if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     player = SpotifyPlayer()
     try:
-        player.login("nolitsou", "lazyboy29")
         player.play_uri("spotify:track:22e6sT2Pu8kXpJeItO0xGg")
         while True:
               time.sleep(0.2)
