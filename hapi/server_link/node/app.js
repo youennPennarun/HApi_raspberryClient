@@ -113,6 +113,7 @@ function tokenConnect () {
 	                console.log(JSON.stringify({"message": "sound:resume", "data": {}}));
 	            });
 	            socket.on('sound:volume:set', function (data) {
+                    log("new volume: "+data.volume);
 	                console.log(JSON.stringify({"message": "sound:volume:set","data": data}));
 	            });
 	            socket.on('sound:volume:get', function() {

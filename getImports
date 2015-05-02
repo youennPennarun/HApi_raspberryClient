@@ -1,0 +1,3 @@
+#!/bin/sh
+grep -r -h import ./hapi/*.py > ./imports.txt
+sort ./imports.txt | uniq -u

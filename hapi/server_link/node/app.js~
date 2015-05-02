@@ -113,6 +113,7 @@ function tokenConnect () {
 	                console.log(JSON.stringify({"message": "sound:resume", "data": {}}));
 	            });
 	            socket.on('sound:volume:set', function (data) {
+                    log("new volume: "+data);
 	                console.log(JSON.stringify({"message": "sound:volume:set","data": data}));
 	            });
 	            socket.on('sound:volume:get', function() {
@@ -124,11 +125,23 @@ function tokenConnect () {
 	            socket.on('sound:previous', function() {
 	                console.log(JSON.stringify({"message":"sound:previous","data": {}}));
 	            });
-	            socket.on('sound:playing:get', function() {
-	                console.log(JSON.stringify({"message":"sound:playing:get","data": {}}));
-	            });
 	            socket.on('music:playlist:add', function(data) {
 	                console.log(JSON.stringify({"message":"music:playlist:add","data": data}));
+	            });
+	            socket.on('music:playlist:set', function(data) {
+	                console.log(JSON.stringify({"message":"music:playlist:set","data": data}));
+	            });
+	            socket.on('music:player:next', function(data) {
+	                console.log(JSON.stringify({"message":"music:player:next","data": data}));
+	            });
+	            socket.on('music:player:previous', function(data) {
+	                console.log(JSON.stringify({"message":"music:player:previous","data": data}));
+	            });
+	            socket.on('music:playlist:playing:id', function(data) {
+	                console.log(JSON.stringify({"message":"music:playlist:playing:id","data": data}));
+	            });
+	            socket.on('music:playlist:get', function(data) {
+	                console.log(JSON.stringify({"message":"music:playlist:get","data": data}));
 	            });
 	       } else {
 	       	console.log("server error");

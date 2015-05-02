@@ -42,7 +42,7 @@ class Player:
       
     def setVolume(self, data):
         mixer = alsaaudio.Mixer("PCM");
-        mixer.setvolume(data['volume']);
+        mixer.setvolume(int(data['volume']));
         self.serverHandler.emit(RequestHandler("pi:notify:sound:volume", {"volume": mixer.getvolume()}))
           
           

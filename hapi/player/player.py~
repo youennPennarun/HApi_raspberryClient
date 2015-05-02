@@ -26,17 +26,14 @@ class Player:
         self.spotifyPlayer.next(data)
     def previous(self, data):
         self.spotifyPlayer.previous(data)
+    def playIdInPlaylist(self, data):
+        self.spotifyPlayer.playIdInPlaylist(data)
     def playListAdd(self, data):
         self.spotifyPlayer.playListAdd(data)
-    def getPlayingTrack(self, data):
-        if self.spotifyPlayer.currentTrack is not None:
-            artists = []
-            for artist in self.spotifyPlayer.currentTrack.artists:
-                artists.append(artist.name)
-            self.serverHandler.emit(RequestHandler("music:playing", {"track": self.currentTrack.toJSON()}))
-        else:
-            self.serverHandler.emit(RequestHandler("music:playing", {"track": {}}))
-          
+    def playListSet(self, data):
+        self.spotifyPlayer.playListSet(data)
+    def playListLoad(self, data):
+        self.spotifyPlayer.playListLoad(data)
     def play_local(self):
         print("local")
     def getVolume(self, data):
@@ -45,6 +42,7 @@ class Player:
       
     def setVolume(self, data):
         mixer = alsaaudio.Mixer("PCM");
+        print("volume = "+data['volume']);
         mixer.setvolume(data['volume']);
         self.serverHandler.emit(RequestHandler("pi:notify:sound:volume", {"volume": mixer.getvolume()}))
           
